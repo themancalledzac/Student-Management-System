@@ -30,6 +30,8 @@
 - [Questions](#questions)
 
 ## Description
+This project incorporates handlebars to serve a front end application with MySQL serving as the databse to store the backend date. 
+The application is reliant on handlebars for rendering HTML and JS to the front end.
 
 # Project 2
 
