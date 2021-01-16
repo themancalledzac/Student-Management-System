@@ -1,3 +1,36 @@
+<h1 align="center">Employee Tracker</h1>
+
+<p align="center">
+    <img src="https://img.shields.io/github/repo-size/themancalledzac/project2group4" />
+    <img src="https://img.shields.io/github/languages/top/themancalledzac/project2group4"  />
+    <img src="https://img.shields.io/github/issues/themancalledzac/project2group4" />
+    <img src="https://img.shields.io/github/last-commit/themancalledzac/project2group4" >
+
+</p>
+  
+<p align="center">
+    <img src="https://img.shields.io/badge/Javascript-red" />
+    <img src="https://img.shields.io/badge/jQuery-orange"  />
+    <img src="https://img.shields.io/badge/-node.js-yellow" />
+    <img src="https://img.shields.io/badge/-inquirer-blue" >
+    <img src="https://img.shields.io/badge/-mySQL-teal" />
+    <img src="https://img.shields.io/badge/-Sequelize-blue" />
+    <img src="https://img.shields.io/badge/-Bootstrap-indigo" />
+    <img src="https://img.shields.io/badge/-Handlebars-violet" />
+</p>
+
+## Table of Contents
+
+- [Description](#description)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Code](#code)
+- [Questions](#questions)
+
+## Description
+
 # Project 2
 
 ## Application Requirements
