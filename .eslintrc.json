@@ -27,8 +27,18 @@
         "camelcase": "error",
         "brace-style": "error",
         "indent": [
-            "error",
-            4
+            {
+                "indent": [
+                    "error",
+                    2
+                ]
+            },
+            {
+                "indent": [
+                    "error",
+                    "tab"
+                ]
+            }
         ],
         "linebreak-style": [
             "error",
