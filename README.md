@@ -1,4 +1,4 @@
-<h1 align="center">Project Two: Sequelize Website</h1>
+<h1 align="center">Student Management System</h1>
 
 <p align="center">
     <img src="https://img.shields.io/github/repo-size/themancalledzac/project2group4" />
