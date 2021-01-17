@@ -5,6 +5,10 @@
     <img src="https://img.shields.io/github/languages/top/themancalledzac/project2group4"  />
     <img src="https://img.shields.io/github/issues/themancalledzac/project2group4" />
     <img src="https://img.shields.io/github/last-commit/themancalledzac/project2group4" >
+    <img src="https://img.shields.io/travis/com/themancalledzac/Student-Management-System/main" >
+
+
+
 
 </p>
   
