@@ -1,5 +1,4 @@
-// Updated
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     const Teachers = sequelize.define("Teachers", {
         firstName: {
             type: DataTypes.STRING,
@@ -53,7 +52,19 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Teachers.associate = models => {
+
         Teachers.belongsTo(models.School, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+
+        Teachers.belongsTo(models.TeacherStudents, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Teachers.belongsTo(models.TeacherClasses, {
             foreignKey: {
                 allowNull: false
             }

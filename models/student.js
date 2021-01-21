@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     const Students = sequelize.define("Students", {
         firstName: {
             type: DataTypes.STRING,
@@ -25,11 +25,11 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        email: {
-            validate: {
-                isEmail: true,
-            }
-        }
+        // email: {
+        //     validate: {
+        //         isEmail: true,
+        //     }
+        // }
     });
 
     Students.associate = models => {
