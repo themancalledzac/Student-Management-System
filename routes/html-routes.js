@@ -1,3 +1,21 @@
+
+var db = require("../models");
+
+var burgerController = require("../controllers/burgerController.js");
+
+module.exports = function (app) {
+
+    app.get("/", burgerController.splashPage);
+
+    app.get("/about", burgerController.aboutPage);
+
+    app.get("/create", burgerController.createBurger);
+
+    app.get("/editPage", burgerController.editPage);
+
+    app.get("/editBurger", burgerController.editBurger);
+}
+
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
 
@@ -27,3 +45,4 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 };
+

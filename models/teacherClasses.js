@@ -1,4 +1,4 @@
-module.exports = function (sequelize) {
+module.exports = (sequelize) => {
     const TeacherClasses = sequelize.define("TeacherClasses", {
 
     });
