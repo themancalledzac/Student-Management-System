@@ -21,6 +21,13 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+
+var routes = require("./controllers/burgers_controller.js");
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
