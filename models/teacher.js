@@ -59,12 +59,12 @@ module.exports = (sequelize, DataTypes) => {
             }
         });
 
-        Teachers.belongsTo(models.TeacherStudents, {
+        Teachers.hasMany(models.TeacherStudents, {
             foreignKey: {
                 allowNull: false
             }
         });
-        Teachers.belongsTo(models.TeacherClasses, {
+        Teachers.hasMany(models.TeacherClasses, {
             foreignKey: {
                 allowNull: false
             }

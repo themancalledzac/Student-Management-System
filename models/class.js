@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
 
     Classes.associate = models => {
 
-        Classes.belongsTo(models.TeacherClasses, {
+        Classes.hasMany(models.TeacherClasses, {
             foreignKey: {
                 allowNull: false
             }
         });
 
-        Classes.belongsTo(models.StudentClasses, {
+        Classes.hasMany(models.StudentClasses, {
             foreignKey: {
                 allowNull: false
             }

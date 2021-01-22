@@ -5,12 +5,12 @@ module.exports = (sequelize) => {
 
     StudentClasses.associate = models => {
 
-        StudentClasses.hasMany(models.Students, {
+        StudentClasses.belongsTo(models.Students, {
             foreignKey: {
                 allowNull: false
             }
         });
-        StudentClasses.hasMany(models.Classes, {
+        StudentClasses.belongsTo(models.Classes, {
             foreignKey: {
                 allowNull: false
             }

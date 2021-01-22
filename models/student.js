@@ -33,7 +33,12 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Students.associate = models => {
-        Students.belongsTo(models.TeacherStudents, {
+        Students.hasMany(models.TeacherStudents, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Students.hasMany(models.StudentClasses, {
             foreignKey: {
                 allowNull: false
             }
