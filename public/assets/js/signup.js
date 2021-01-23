@@ -1,6 +1,33 @@
 
 
 $(document).ready(() => {
+  function checkPasswordMatch() {
+    const password = $("#password").val();
+    const confirmPassword = $("#confirm").val();
+    if (password !== confirmPassword) {
+      $("#message").html("Passwords do not match!").css("color", "red");
+    } else {
+      $("#message").html("Passwords match.").css("color", "green");
+    }
+  }
+  function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+  }
+
+  function signUpUser(firstName, lastName, email, password) {
+    $.post("/api/signup", {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password
+    })
+      .then(() => {
+        window.location.replace("/page1");
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
+  }
   // Getting references to our form and input
   const firstNameInput = $("#firstname");
   const lastNameInput = $("#lastname");
@@ -30,37 +57,16 @@ $(document).ready(() => {
     lastNameInput.val("");
     emailInput.val("");
     passwordInput.val("");
+    confirmInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(firstName, lastName, email, password) {
-    $.post("/api/signup", {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password
-    })
-      .then(() => {
-        window.location.replace("/page1");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
-  }
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-  }
 
-  function checkPasswordMatch() {
-    const password = $("#password").val();
-    const confirmPassword = $("#confirm").val();
-    if (password !== confirmPassword)
-      $("#message").html("Passwords do not match!").css("color", "red");
-    else
-      $("#message").html("Passwords match.").css("color", "green");
-  }
+
+
+
 });
 
 
