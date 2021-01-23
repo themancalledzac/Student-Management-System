@@ -5,16 +5,16 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             validate: {
                 len: [1, 100]
-            },
-            location: {
-                type: DataTypes.STRING
             }
-        }
+        },
+        // location: {},
+        // time: {},
+
     });
 
     Classes.associate = models => {
 
-        Classes.hasMany(models.TeacherClasses, {
+        Classes.belongsTo(models.Teachers, {
             foreignKey: {
                 allowNull: false
             }
