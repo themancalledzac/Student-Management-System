@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false
             }
         });
-        Teachers.hasMany(models.TeacherClasses, {
+        Teachers.hasMany(models.Classes, {
             foreignKey: {
                 allowNull: false
             }
