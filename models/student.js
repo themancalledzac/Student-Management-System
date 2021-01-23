@@ -30,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
             }
           }
     });
-
     Students.associate = models => {
         Students.hasMany(models.TeacherStudents, {
             foreignKey: {
