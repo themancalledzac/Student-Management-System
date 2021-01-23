@@ -1,4 +1,18 @@
+/* -------------------------------------------------------------------------- */
+/*                                LOG IN                                */
+/* -------------------------------------------------------------------------- */
+
 $(document).ready(function () {
+  function loginUser(email, password) {
+    $.post("/api/login", {
+      email: email,
+      password: password
+    }).then(function () {
+      window.location.replace("/page1");
+    }).catch(function (err) {
+      console.log(err);
+    });
+  }
 
   // Getting references to our form and inputs
   var loginForm = $("#login-form");
@@ -13,7 +27,7 @@ $(document).ready(function () {
       password: passwordInput.val().trim()
     };
     if (!userData.email || !userData.password) {
-      alert("Invalid Username or Password")
+      alert("Invalid Username or Password");
       return;
     }
     // If we have an email and password we run the loginUser function and clear the form
@@ -25,96 +39,92 @@ $(document).ready(function () {
   console.log(email);
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the page1
-  function loginUser(email, password) {
-    $.post("/api/login", {
-      email: email,
-      password: password
-    }).then(function () {
-      window.location.replace("/page1");
-    }).catch(function (err) {
-      console.log(err);
-    });
-  }
+
 
 });
 
-$(document).ready(function () {
+/* -------------------------------------------------------------------------- */
+/*                                   SIGN UP                                  */
+/* -------------------------------------------------------------------------- */
+
+$(document).ready(() => {
+  function checkPasswordMatch() {
+    const password = $("#password").val();
+    const confirmPassword = $("#confirm").val();
+    if (password !== confirmPassword) {
+      $("#message").html("Passwords do not match!").css("color", "red");
+    } else {
+      $("#message").html("Passwords match.").css("color", "green");
+    }
+  }
+  function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+  }
+
+  function signUpUser(firstName, lastName, email, password) {
+    $.post("/api/signup", {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password
+    })
+      .then(() => {
+        window.location.replace("/page1");
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
+  }
   // Getting references to our form and input
-  var firstName = $("#firstname");
-  var lastName = $("#lastname");
-  var signUpForm = $("#signup-form");
-  var emailInput = $("#email");
-  var passwordInput = $("#password");
-  var passwordVerify = $("#confirm");
+  const firstNameInput = $("#firstname");
+  const lastNameInput = $("#lastname");
+  const signUpForm = $("#signup-form");
+  const emailInput = $("#email");
+  const passwordInput = $("#password");
+  const confirmInput = $("#confirm");
   $("#confirm").keyup(checkPasswordMatch);
 
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function (event) {
+  signUpForm.on("submit", event => {
     event.preventDefault();
-    var userData = {
-      firstName: firstName.val().trim().toLowerCase(),
-      lastName: lastName.val().trim().toLowerCase(),
-      email: emailInput.val().trim().toLowerCase(),
-      password: passwordInput.val().trim(),
-      passwordChek: passwordVerify.val().trim()
+    const userData = {
+      firstName: firstNameInput.val().trim(),
+      lastName: lastNameInput.val().trim(),
+      email: emailInput.val().trim(),
+      password: passwordInput.val().trim()
     };
-    console.log(userData.email);
-    let userCount = "/api/user/count/";
-    userCount += userData.email;
-    console.log(userCount);
 
-    $.get(userCount).then(function (result) {
-      console.log("searching");
-      console.log(result);
-      if (result === 1) {
-        modalAlert("That user already exists!");
-      } else {
-        if (!userData.email || !userData.password) {
-          modalAlert("Please complete user info.");
-          return;
-        }
-        else if (userData.password !== userData.passwordChek) {
-          modalAlert("Passwords do not match!");
-        } else {
-          // If we have an email and password, run the signUpUser function
-          signUpUser(userData.email, userData.password);
-          emailInput.val("");
-          passwordInput.val("");
-        }
-
-      }
-    });
+    if (!userData.firstName || !userData.lastName || !userData.email || !userData.password) {
+      return;
+    }
+    // If we have an email and password, run the signUpUser function
+    signUpUser(userData.firstName, userData.lastName, userData.email, userData.password);
+    firstNameInput.val("");
+    lastNameInput.val("");
+    emailInput.val("");
+    passwordInput.val("");
+    confirmInput.val("");
   });
-
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password) {
-    $.post("/api/signup", {
-      email: email,
-      password: password
-    })
-      .then(function (data) {
-        window.location.replace(data);
-      })
-      .catch(handleLoginErr);
-  }
-
-  // function handleLoginErr(err) {
-  //   $("#alert .msg").text(err.responseJSON);
-  //   $("#alert").fadeIn(500);
-  // }
 
 
 
+});
 
-  function checkPasswordMatch() {
-    var password = $("#password").val();
-    var confirmPassword = $("#confirm").val();
-    if (password !== confirmPassword)
-      $("#message").html("Passwords do not match!").css("color", "red");
-    else
-      $("#message").html("Passwords match.").css("color", "green");
-  }
+/* -------------------------------------------------------------------------- */
+/*                                   PAGE-1                                   */
+/* -------------------------------------------------------------------------- */
+
+$(document).ready(() => {
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get("/api/user_data").then(data => {
+    $(".member-name").text(data.firstName);
+    $(".first-name").text(data.firstName);
+    $(".last-name").text(data.lastName);
+    $(".email").text(data.email);
+  });
 });
