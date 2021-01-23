@@ -8,7 +8,7 @@ $(document).ready(function () {
       email: email,
       password: password
     }).then(function () {
-      window.location.replace("/page1");
+      window.location.replace("/profile");
     }).catch(function (err) {
       console.log(err);
     });
@@ -34,9 +34,11 @@ $(document).ready(function () {
     loginUser(userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
+
+    console.log(userData.email);
   });
 
-  console.log(email);
+
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the page1
 
@@ -70,7 +72,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/page1");
+        window.location.replace("/profile");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
@@ -115,7 +117,7 @@ $(document).ready(() => {
 });
 
 /* -------------------------------------------------------------------------- */
-/*                                   PAGE-1                                   */
+/*                                   profile_page                                   */
 /* -------------------------------------------------------------------------- */
 
 $(document).ready(() => {
