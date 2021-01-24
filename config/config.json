@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "11aa22bb",
     "database": "studentmanagementdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
