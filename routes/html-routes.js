@@ -20,6 +20,12 @@ router.get("/profile", isAuthenticated, (req, res) => {
   res.render("profile");
 });
 
+/* -------------------------------------------------------------------------- */
+router.get("/class", isAuthenticated, (req, res) => {
+  // If the user already has an account send them to the members page
+  res.render("class");
+});
+
 // router.get("/login", (req, res) => {
 //     // If the user already has an account send them to the members page
 //     if (req.user) {
