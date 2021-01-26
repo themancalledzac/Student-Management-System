@@ -41,7 +41,7 @@ router.get("/logout", (req, res) => {
 });
 
 // Route for getting some data about our user to be used client side
-router.get("/api/profile", (req, res) => {
+router.get("/api/profile-student", (req, res) => {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     res.json({});
