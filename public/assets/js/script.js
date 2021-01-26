@@ -208,6 +208,10 @@ function getClasses() {
       const liEL = $("<li>");
       liEL.addClass("list-group-item").text(data[i].name);
       $(".list-group-class").append(liEL);
+      liEL.addClass("btn btn-light").text("add");
+      $(".btn").appent(liEl);
+
+      <li class="list-group-item"
     }
   });
 }
