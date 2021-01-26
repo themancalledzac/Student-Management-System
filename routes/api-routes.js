@@ -41,21 +41,21 @@ router.get("/logout", (req, res) => {
 });
 
 // Route for getting some data about our user to be used client side
-router.get("/api/profile-student", (req, res) => {
-  if (!req.user) {
-    // The user is not logged in, send back an empty object
-    res.json({});
-  } else {
-    // Otherwise send back the user's email and id
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
-      email: req.user.email,
-      id: req.user.id
-    });
-  }
-});
+// router.get("/api/profile-student", (req, res) => {
+//   if (!req.user) {
+//     // The user is not logged in, send back an empty object
+//     res.json({});
+//   } else {
+//     // Otherwise send back the user's email and id
+//     // Sending back a password, even a hashed password, isn't a good idea
+//     res.json({
+//       firstName: req.user.firstName,
+//       lastName: req.user.lastName,
+//       email: req.user.email,
+//       id: req.user.id
+//     });
+//   }
+// });
 
 // for classes
 /* -------------------------------------------------------------------------- */
