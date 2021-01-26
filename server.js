@@ -41,6 +41,7 @@ app.use(
     require("./routes/html-routes.js"),
     require("./routes/api-routes.js"),
     require("./routes/profile-routes.js")
+    require("./routes/teacher-route.js")
 );
 
 
