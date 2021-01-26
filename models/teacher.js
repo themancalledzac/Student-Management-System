@@ -30,13 +30,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         yearsTeaching: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DECIMAL(3, 0),
         },
         officeHours: {
-            type: DataTypes.DECIMAL(2, 2),
-            validate: {
-                len: [1, 5]
-            }
+            type: DataTypes.DECIMAL(4, 2),
         },
         officeLocation: {
             type: DataTypes.STRING,
@@ -55,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
 
         Teachers.belongsTo(models.School, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
 

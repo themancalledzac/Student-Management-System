@@ -1,3 +1,57 @@
-INSERT INTO Schools (name, rating) VALUES ('University of Washington', 95);
-INSERT INTO Teachers (firstName, lastName, degree, rating, department, yearsTeaching, officeHours, officeLocation, publications) VALUES ('Anthony', 'Brown', 'Awesomeness', 100, 'Computer Science', 5, 2200, 'Seattle', 'How to write a React App');
-INSERT INTO Classes (name, location) VALUES ('Full Stack Bootcamp', 'Seattle');
+USE studentmanagementdb;
+INSERT INTO
+  Schools (name, rating, createdAt, updatedAt)
+VALUES
+  (
+    'University of Washington',
+    95,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+  );
+USE studentmanagementdb;
+INSERT INTO
+  teachers (
+    firstName,
+    lastName,
+    degree,
+    rating,
+    department,
+    yearsTeaching,
+    officeHours,
+    officeLocation,
+    publications,
+    createdAt,
+    updatedAt,
+    SchoolId
+  )
+VALUES
+  (
+    'Anthony',
+    'Brown',
+    'Full-Stack Development',
+    100,
+    'Computer Science',
+    3,
+    10.00,
+    'Seattle',
+    'How to write a REACT App',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP,
+    1
+  );
+INSERT INTO
+  Classes (
+    name,
+    location,
+    createdAt,
+    updatedAt,
+    TeacherId
+  )
+VALUES
+  (
+    'Full Stack Bootcamp',
+    'Seattle',
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP,
+    1
+  );

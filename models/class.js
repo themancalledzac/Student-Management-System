@@ -7,7 +7,13 @@ module.exports = (sequelize, DataTypes) => {
                 len: [1, 100]
             }
         },
-        // location: {},
+        location: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 100]
+            }
+        }
         // time: {},
 
     });
