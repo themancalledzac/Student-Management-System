@@ -123,9 +123,9 @@ $(document).ready(() => {
 // make all ID instead of class ---------TODO---------------------
 
 // start by hiding divs
-$("#profile-information").hide();
-$("#teacher-information").hide();
-$("#class-information").hide();
+// $("#profile-information").hide();
+// $("#teacher-information").hide();
+// $("#class-information").hide();
 
 
 // load student data
@@ -143,35 +143,35 @@ const getStudentData = async () => {
   });
 };
 // load teacher data
-const getTeacherData = async () => {
-  $.get("/api/profile-teacher").then(data => {
-    $(".first-name").text(data.firstName);
-    $(".last-name").text(data.lastName);
-    $(".email").text(data.email);
-    $(".email").text(data.email);
-  });
-};
-// load class data
-const getClassData = async () => {
-  $.get("/api/profile-class").then(data => {
-    $(".first-name").text(data.firstName);
-    $(".last-name").text(data.lastName);
-    $(".email").text(data.email);
-    $(".email").text(data.email);
-  });
-}
+// const getTeacherData = async () => {
+//   $.get("/api/profile-teacher").then(data => {
+//     $(".first-name").text(data.firstName);
+//     $(".last-name").text(data.lastName);
+//     $(".email").text(data.email);
+//     $(".email").text(data.email);
+//   });
+// };
+// // load class data
+// const getClassData = async () => {
+//   $.get("/api/profile-class").then(data => {
+//     $(".first-name").text(data.firstName);
+//     $(".last-name").text(data.lastName);
+//     $(".email").text(data.email);
+//     $(".email").text(data.email);
+//   });
+// }
 
 $(document).ready(async () => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   try {
     await getStudentData();
-    await getTeacherData();
-    await getClassData();
+    // await getTeacherData();
+    // await getClassData();
     $("#profile-information").show(500, () => {
-      $("#profile-information").show(500, () => {
-        $("#profile-information").show(500);
-      });
+      // $("#profile-information").show(500, () => {
+      //   $("#profile-information").show(500);
+      // });
     });
   }
   catch (err) { alert(err) }

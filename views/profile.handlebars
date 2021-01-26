@@ -62,22 +62,70 @@
       {{!-- Each --}}
       <div id="profile-information">
         <ul class="list-group profile-user-edit" style="width: 36rem;">
-          <li class="list-group-item">First Name:<span id="student-first-name" class="first-name"></span></li>
-          <li class="list-group-item">Last Name:<span id="student-last-name" class="last-name"></span></li>
-          <li class="list-group-item">Email:<span id="student-email" class="email"></span></li>
-          <li class="list-group-item">Phone Number:<span id="student-phone" class="phone"></span></li>
+          <li class="list-group-item">First Name: <span id="student-first-name" class="first-name"></span></li>
+          <li class="list-group-item">Last Name: <span id="student-last-name" class="last-name"></span></li>
+          <li class="list-group-item">Email: <span id="student-email" class="email"></span></li>
+          <li class="list-group-item">Phone Number: <span id="student-phone" class="phone"></span></li>
         </ul>
 
       </div>
-
-      <div id="teacher-information">
-        <ul class="list-group profile-teacher-edit" style="width: 36rem;">
-
+        
+      <ul id="teacher_list">
+        <h1 class="mt-4">TEACHERS</h1>
+          {{#each teachers}}
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-md-8 offset-md-2">
+                          <div class="teacher-container">
+                              <table class="table  text-light">
+                                  <thead>
+                                      <tr>
+                                        {{!-- <th>#</th> --}}
+                                        <th>{{ firstName }}</th>
+                                        <th>{{ lastName }}</th>
+                                        <th>{{ degree }}</th>
+                                        <th>{{ rating }}</th>
+                                        <th>{{ department }}</th>             
+                                      </tr>
+                                      <button class="btn btn-success" data-id="{{ TeacherId }}" id="devour"> Remove from list!</button>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+          {{/each}}
         </ul>
 
       </div>
       <div id="class-information">
-
+        <ul id="classes_list">
+                <h1 class="mt-4">CLASSES</h1>
+                  {{#each classes}}
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-md-8 offset-md-2">
+                                  <div class="teacher-container">
+                                      <table class="table  text-light">
+                                          <thead>
+                                              <tr>
+                                                {{!-- <th>#</th> --}}
+                                                <th>{{ name }}</th>
+                                                <th>{{ location }}</th>            
+                                              </tr>
+                                              <button class="btn btn-success" data-id="{{ TeacherId }}" id="devour"> Remove from list!</button>
+                                          </thead>
+                                          <tbody>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                  {{/each}}
+                </ul>
 
       </div>
 
