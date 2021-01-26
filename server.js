@@ -40,7 +40,8 @@ app.set("view engine", "handlebars");
 app.use(
     require("./routes/html-routes.js"),
     require("./routes/api-routes.js"),
-    require("./routes/teacher-route.js")
+    require("./routes/teacher-route.js"),
+    require("./routes/classes-route.js")
 );
 
 

@@ -55,3 +55,17 @@ VALUES
     CURRENT_TIMESTAMP,
     1
   );
+INSERT INTO 
+  TeacherStudents (
+    createdAt,
+    updatedAt,
+    StudentId,
+    TeacherId,
+  )
+VALUES
+  (
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP,
+    1,
+    1
+  );
