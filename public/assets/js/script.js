@@ -117,7 +117,7 @@ $(document).ready(() => {
 });
 
 /* -------------------------------------------------------------------------- */
-/*                                   profile_page                                   */
+/*                                   profile_page                             */
 /* -------------------------------------------------------------------------- */
 
 $(document).ready(() => {
@@ -130,6 +130,21 @@ $(document).ready(() => {
     $(".email").text(data.email);
   });
 });
+
+/* -------------------------------------------------------------------------- */
+/*                                   TODO                                     */
+/*              We should have each of the fields above editable.             */
+/*                           thoughts on this code?                           */
+/* -------------------------------------------------------------------------- */
+
+// $(".userEdit").onclick(() => {
+//   $.post("/api/profileEdit").then(data => {
+//     $(".first-name").text(data.firstName);
+//     $(".last-name").text(data.lastName);
+//     $(".email").text(data.email);
+//     $(".phone-number").text(data.phoneNumber);
+//   });
+// });
 
 /* -------------------------------------------------------------------------- */
 /*                                    class                                   */
