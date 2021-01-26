@@ -120,16 +120,64 @@ $(document).ready(() => {
 /*                                   profile_page                             */
 /* -------------------------------------------------------------------------- */
 
-$(document).ready(() => {
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/profile").then(data => {
-    $(".member-name").text(data.firstName);
+// make all ID instead of class ---------TODO---------------------
+
+// start by hiding divs
+$("#profile-information").hide();
+$("#teacher-information").hide();
+$("#class-information").hide();
+
+
+// load student data
+
+
+const getStudentData = async () => {
+  $.get("/api/profile-student").then(data => {
+    $("#student-first-name").text(data.firstName);
+    $("#student-last-name").text(data.lastName);
+    $("#student-email").text(data.email);
+    $("#student-phone").text(data.phoneNumber);
+    // after load, make visible
+    // display none
+    //
+  });
+};
+// load teacher data
+const getTeacherData = async () => {
+  $.get("/api/profile-teacher").then(data => {
     $(".first-name").text(data.firstName);
     $(".last-name").text(data.lastName);
     $(".email").text(data.email);
+    $(".email").text(data.email);
   });
+};
+// load class data
+const getClassData = async () => {
+  $.get("/api/profile-class").then(data => {
+    $(".first-name").text(data.firstName);
+    $(".last-name").text(data.lastName);
+    $(".email").text(data.email);
+    $(".email").text(data.email);
+  });
+}
+
+$(document).ready(async () => {
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  try {
+    await getStudentData();
+    await getTeacherData();
+    await getClassData();
+    $("#profile-information").show(500, () => {
+      $("#profile-information").show(500, () => {
+        $("#profile-information").show(500);
+      });
+    });
+  }
+  catch (err) { alert(err) }
 });
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */
@@ -164,3 +212,20 @@ function getClasses() {
   });
 }
 getClasses();
+
+/* -------------------------------------------------------------------------- */
+/*                                   TODO                                     */
+/*              Each class needs to be clickable, shows class data            */
+/*                           thoughts on this code?                           */
+/* -------------------------------------------------------------------------- */
+
+//
+
+/* -------------------------------------------------------------------------- */
+/*                                   TODO                                     */
+/*                  Each class needs an 'add to profile' button               */
+/*                           thoughts on this code?                           */
+/* -------------------------------------------------------------------------- */
+
+//
+

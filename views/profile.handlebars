@@ -33,8 +33,9 @@
             <a class="nav-link" href="/logout">Sign Out</a>
           </li>
           <li class="nav-item dropdown">
+            {{!-- TODO - CLICKING DROPDOWN CHANGES NOTHING --}}
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"> Dropdown </a>
+              aria-haspopup="true" aria-expanded="false"> </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">My Account</a>
               <a class="dropdown-item" href="#">Sign out</a>
@@ -57,12 +58,28 @@
         <button type="button" class="btn btn-light">EDIT IMAGE</button>
       </div>
       <br>
-      <ul class="list-group" style="width: 36rem;">
-        <li class="list-group-item">First Name:<span class="first-name"></span></li>
-        <li class="list-group-item">Last Name:<span class="last-name"></span></li>
-        <li class="list-group-item">Email:<span class="email"></span></li>
-        <li class="list-group-item">Phone Number:<span class="phone"></span></li>
-      </ul>
+      {{!----------------------------------- TODO -------------------------------------------------}}
+      {{!-- Each --}}
+      <div id="profile-information">
+        <ul class="list-group profile-user-edit" style="width: 36rem;">
+          <li class="list-group-item">First Name:<span id="student-first-name" class="first-name"></span></li>
+          <li class="list-group-item">Last Name:<span id="student-last-name" class="last-name"></span></li>
+          <li class="list-group-item">Email:<span id="student-email" class="email"></span></li>
+          <li class="list-group-item">Phone Number:<span id="student-phone" class="phone"></span></li>
+        </ul>
+
+      </div>
+
+      <div id="teacher-information">
+        <ul class="list-group profile-teacher-edit" style="width: 36rem;">
+
+        </ul>
+
+      </div>
+      <div id="class-information">
+
+
+      </div>
 
 
     </div>

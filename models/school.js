@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         rating: {
-            type: DataTypes.DECIMAL(10, 2),
+            type: DataTypes.DECIMAL(4, 2),
             validate: {
                 isInt: true,
                 allowNull: false
