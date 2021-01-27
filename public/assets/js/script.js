@@ -131,7 +131,7 @@ $(document).ready(() => {
 // load student data
 
 
-const getStudentData = async () => {
+const getStudentData = function () {
   $.get("/api/profile-student").then(data => {
     $("#student-first-name").text(data.firstName);
     $("#student-last-name").text(data.lastName);
@@ -161,11 +161,11 @@ const getStudentData = async () => {
 //   });
 // }
 
-$(document).ready(async () => {
+$(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   try {
-    await getStudentData();
+    getStudentData();
     // await getTeacherData();
     // await getClassData();
     $("#profile-information").show(500, () => {
