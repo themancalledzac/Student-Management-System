@@ -43,7 +43,7 @@ router.get("/profile", isAuthenticated, (req, res) => {
       ...result.dataValues,
       Classes: result.dataValues.Classes.map(result => result.dataValues)
     }));
-    console.log(resultsArray[0].Classes);
+    // console.log(resultsArray[0].Classes);
     res.render("profile", { teachers: resultsArray });
   });
 
@@ -69,6 +69,6 @@ module.exports = router;
       // await teacherFindAll(teacherData);
       // await classFindAll(classData);
       // .then(function (results) {
-          // 
+          //
       // })
 // })

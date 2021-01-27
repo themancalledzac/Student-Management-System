@@ -10,6 +10,7 @@ $(document).ready(function () {
     }).then(function () {
       window.location.replace("/profile");
     }).catch(function (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     });
   }
@@ -173,8 +174,9 @@ $(document).ready(() => {
       //   $("#profile-information").show(500);
       // });
     });
+  } catch (err) {
+    alert(err);
   }
-  catch (err) { alert(err) }
 });
 
 
@@ -198,20 +200,22 @@ $(document).ready(() => {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
-
+// CODE IS BROKEN HERE TODO
 
 
 function getClasses() {
   $.get("/api/class").then(data => {
+    // eslint-disable-next-line no-console
     console.log(data);
     for (let i = 0; i < data.length; i++) {
       const liEL = $("<li>");
       liEL.addClass("list-group-item").text(data[i].name);
       $(".list-group-class").append(liEL);
       liEL.addClass("btn btn-light").text("add");
-      $(".btn").appent(liEl);
+      // eslint-disable-next-line no-undef
+      $(".btn").append(liEl);
 
-      <li class="list-group-item"
+      // <li class="list-group-item"
     }
   });
 }
