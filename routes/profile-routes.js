@@ -3,7 +3,7 @@ var express = require("express");
 const router = express.Router();
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-const mapDatavalues = row => row.dataValues;
+// const mapDatavalues = row => row.dataValues;
 
 // Route for getting some data about our user to be used client side
 router.get("/api/profile-student", (req, res) => {
@@ -61,3 +61,14 @@ router.get("/profile", isAuthenticated, (req, res) => {
 // });
 
 module.exports = router;
+
+
+
+// could we do a:
+// router.get("/profile", isAuthenticated, (req, res) => {
+      // await teacherFindAll(teacherData);
+      // await classFindAll(classData);
+      // .then(function (results) {
+          // 
+      // })
+// })
