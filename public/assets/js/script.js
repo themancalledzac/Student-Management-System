@@ -218,34 +218,12 @@ $("#class-remove").on("click", function (event) {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
-// CODE IS BROKEN HERE TODO
-
-
-function getClasses() {
-  $.get("/api/class").then(data => {
-    // eslint-disable-next-line no-console
-    console.log(data);
-    for (let i = 0; i < data.length; i++) {
-      const liEL = $("<li>");
-      liEL.addClass("list-group-item").text(data[i].name);
-      $(".list-group-class").append(liEL);
-      liEL.addClass("btn btn-light").text("add");
-      // eslint-disable-next-line no-undef
-      $(".btn").append(liEl);
-
-      // <li class="list-group-item"
-    }
-  });
-}
-getClasses();
-
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */
 /*              Each class needs to be clickable, shows class data            */
 /*                           thoughts on this code?                           */
 /* -------------------------------------------------------------------------- */
 
-//
 
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */
@@ -253,5 +231,13 @@ getClasses();
 /*                           thoughts on this code?                           */
 /* -------------------------------------------------------------------------- */
 
-//
+$("#add-class").on("click", function (event) {
+  event.preventDefault();
+  console.log(event.target);
+  const classId = $(event.target).attr("data-id");
+  $.post("/profile/addclass/" + classId)
+    .then(data => {
+      location.reload("/profile");
+    });
+});
 
