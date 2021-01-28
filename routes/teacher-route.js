@@ -28,4 +28,23 @@ router.get("/teacher", isAuthenticated, (req, res) => {
     // If the user already has an account send them to the members page
     res.render("teacher");
 });
+
+/* -------------------------------------------------------------------------- */
+router.post("/teacher/:id", isAuthenticated, (req, res) => {
+    db.TeacherStudents.create({
+        studentId: req.user.id,
+        teacherId: req.params.id
+        // createdAt: CURRENT_TIMESTAMP,
+        // updatedAt: CURRENT_TIMESTAMP,
+
+    })
+        .then(() => {
+            res.redirect(307, "/api/login");
+        })
+        .catch(err => {
+            res.status(401).json(err);
+        });
+});
+
+
 module.exports = router;
