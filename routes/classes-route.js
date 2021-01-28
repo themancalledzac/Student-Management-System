@@ -8,8 +8,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
 //api route for classes
-router.get("/api/class", function (req
-    , res) {
+router.get("/api/class", (req, res) => {
     if (!req.user) {
         // The user is not logged in, send back an empty object
         res.json({});
@@ -17,18 +16,25 @@ router.get("/api/class", function (req
         // Here we add an "include" property to our options in our findOne query
         // We set the value to an array of the models we want to include in a left outer join
         // In this case, just db.Post
-        db.Classes.findAll({
+        db.Classes.findAll({   
 
-        }).then(function (dbClasses) {
-            res.json(dbClasses);
+        }).then((dbClasses) => {
+             res.json(dbClasses);
         });
     }
 });
 
-// html route for classes
+//html route for classes
 router.get("/class", isAuthenticated, (req, res) => {
     //If the user already has an accoutn send them to class page
-    res.render("class");
+    db.Classes.findAll(
+
+    ).then((dbClasses) => {
+               console.log(hbsObject);
+        res.render("class", dbClasses);
+    });
 });
+
+
 
 module.exports = router;

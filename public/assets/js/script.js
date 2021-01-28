@@ -175,6 +175,7 @@ $(document).ready(async () => {
     });
   }
   catch (err) { alert(err) }
+  
 });
 
 
@@ -198,24 +199,16 @@ $(document).ready(async () => {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
+// function getClasses() {
+//   $.get("/api/class").then(data => {
+//     console.log(data);
+//     for (let i = 0; i < data.length; i++) {
+//       const liEL = $("<li>");
+//       liEL.addClass("list-group-item").text(data[i].name);
+//       $(".list-group-class").append(liEL);
+// };
 
-
-
-function getClasses() {
-  $.get("/api/class").then(data => {
-    console.log(data);
-    for (let i = 0; i < data.length; i++) {
-      const liEL = $("<li>");
-      liEL.addClass("list-group-item").text(data[i].name);
-      $(".list-group-class").append(liEL);
-      liEL.addClass("btn btn-light").text("add");
-      $(".btn").appent(liEl);
-
-      <li class="list-group-item"
-    }
-  });
-}
-getClasses();
+// getClasses();
 
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */
@@ -231,5 +224,4 @@ getClasses();
 /*                           thoughts on this code?                           */
 /* -------------------------------------------------------------------------- */
 
-//
 

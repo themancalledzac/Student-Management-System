@@ -6,7 +6,7 @@
         <div class="list-group list-group-flush">
             <a href="/profile" class="list-group-item list-group-item-action bg-light">My Profile</a>
             <a href="/class" class="list-group-item list-group-item-action bg-light">My Classes</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">My Teachers</a>
+            <a href="/teacher" class="list-group-item list-group-item-action bg-light">My Teachers</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">My Books</a>
 
         </div>
@@ -52,11 +52,31 @@
 
 
             {{!--TODO: each class needs an on-click function--}}
-            <ul class="list-group-class" style="width: 36rem;">
+            {{!-- <ul class="list-group-class" style="width: 36rem;"> --}}
                 {{!-- TODO: each class needs an 'add' button to add to your profile --}}
- 
+                {{#each dbClasses}}
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8 offset-md-2">
+                                    <div class="class-container">
+                                        <table class="table text-light">
+                                            <thead>
+                                                <tr>
+                                                    <th>{{name}}</th>
+                                                    <th>{{location}}</th>
+                                                    <th>
+                                                        <button class="btn btn-success" data-id= "#", id="add-class">Add Class</button>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                {{/each}}
                 
-            </ul>
+            {{!-- </ul> --}}
 
 
         </div>
