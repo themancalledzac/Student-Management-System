@@ -22,43 +22,43 @@ router.get("/api/profile-student", (req, res) => {
   }
 });
 
-router.get("/profile", isAuthenticated, (req, res) => {
-  // use findall method to render TeacherStudents data and pass back to the frontend
-  // using the object teachers: resultsArray
 
-  db.Teachers.findAll({
+router.get("/profile", isAuthenticated, async (req, res) => {
+
+  const teacherResults = await db.Teachers.findAll({
     include: [{
       model: db.TeacherStudents,
-      //   attributes: [ ],
       where: {
         StudentId: req.user.id
       }
-    },
-    {
-      model: db.Classes
-    }]
-
-  }).then(function (results) {
-    const resultsArray = results.map(result => ({
-      ...result.dataValues,
-      Classes: result.dataValues.Classes.map(result => result.dataValues)
-    }));
-    // console.log(resultsArray[0].Classes);
-    res.render("profile", { teachers: resultsArray });
+    }],
+    raw: true
   });
 
-});
+  const classResults = await db.Classes.findAll({
+    include: [{
+      model: db.StudentClasses,
+      where: {
+        StudentId: req.user.id
+      }
+    }],
+    raw: true
+  });
 
-// router.get("/api/profile-teacher/:id", (req, res) => {
-//     db.teacherstudents.findAll({
-//         where: {
-//             req.body.id
-//         }
-//     }).then(function (dbTeachers) {
-//       res.json(dbTeachers);
-//     });
-//   }
-// });
+
+  console.log(teacherResults);
+  console.log(classResults);
+  try {
+    res.render("profile", {
+      teachers: teacherResults,
+      classes: classResults
+    });
+
+  } catch (err) {
+    throw (err);
+  }
+
+});
 
 module.exports = router;
 
