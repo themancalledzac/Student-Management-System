@@ -216,7 +216,6 @@ $("#teacher-remove").on("click", function (event) {
 /*                           thoughts on this code?                           */
 /* -------------------------------------------------------------------------- */
 
-//
 
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */
@@ -224,4 +223,13 @@ $("#teacher-remove").on("click", function (event) {
 /*                           thoughts on this code?                           */
 /* -------------------------------------------------------------------------- */
 
+$("#add-class").on("click", function (event) {
+  event.preventDefault();
+  console.log(event.target);
+  const classId = $(event.target).attr("data-id");
+  $.post("/profile/addclass/" + classId)
+    .then(data => {
+      location.reload("/profile");
+    });
+});
 
