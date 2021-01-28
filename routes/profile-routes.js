@@ -60,6 +60,30 @@ router.get("/profile", isAuthenticated, async (req, res) => {
 
 });
 
+
+router.post("/profile/:id", isAuthenticated, async (req, res) => {
+  console.log(req.params.id);
+  console.log(req.user.id);
+  const deleteTeacher = await db.TeacherStudents.destroy({
+
+    where: {
+      // what is the id from TeacherStudents
+      TeacherId: req.params.id,
+      StudentId: req.user.id,
+
+    },
+    raw: true
+  });
+  try {
+    res.render("profile", {
+
+    });
+  } catch (err) {
+    throw (err);
+  }
+
+})
+
 module.exports = router;
 
 
