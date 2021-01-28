@@ -55,12 +55,12 @@ VALUES
     CURRENT_TIMESTAMP,
     1
   );
-INSERT INTO 
+INSERT INTO
   TeacherStudents (
     createdAt,
     updatedAt,
     StudentId,
-    TeacherId,
+    TeacherId
   )
 VALUES
   (

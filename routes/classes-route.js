@@ -3,9 +3,8 @@
 const db = require("../models");
 var express = require("express");
 const router = express.Router();
-const passport = require("../config/passport");
+// const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
 
 //api route for classes
 router.get("/api/class", (req, res) => {
@@ -29,11 +28,13 @@ router.get("/class", isAuthenticated, (req, res) => {
     //If the user already has an accoutn send them to class page
     db.Classes.findAll(
 
-    ).then((dbClasses) => {
-               console.log(hbsObject);
-        res.render("class", dbClasses);
+    ).then((dbClasses) => {   
+        let resultAsJson = dbClasses.map((dbClasses) => dbClasses.toJSON());
+        let result = { data: resultAsJson }            
+        res.render("class", result);
     });
 });
+
 
 
 

@@ -10,6 +10,7 @@ $(document).ready(function () {
     }).then(function () {
       window.location.replace("/profile");
     }).catch(function (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     });
   }
@@ -131,7 +132,7 @@ $(document).ready(() => {
 // load student data
 
 
-const getStudentData = async () => {
+const getStudentData = function () {
   $.get("/api/profile-student").then(data => {
     $("#student-first-name").text(data.firstName);
     $("#student-last-name").text(data.lastName);
@@ -161,11 +162,11 @@ const getStudentData = async () => {
 //   });
 // }
 
-$(document).ready(async () => {
+$(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   try {
-    await getStudentData();
+    getStudentData();
     // await getTeacherData();
     // await getClassData();
     $("#profile-information").show(500, () => {
@@ -173,9 +174,9 @@ $(document).ready(async () => {
       //   $("#profile-information").show(500);
       // });
     });
+  } catch (err) {
+    alert(err);
   }
-  catch (err) { alert(err) }
-  
 });
 
 
@@ -198,17 +199,6 @@ $(document).ready(async () => {
 /* -------------------------------------------------------------------------- */
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
-
-// function getClasses() {
-//   $.get("/api/class").then(data => {
-//     console.log(data);
-//     for (let i = 0; i < data.length; i++) {
-//       const liEL = $("<li>");
-//       liEL.addClass("list-group-item").text(data[i].name);
-//       $(".list-group-class").append(liEL);
-// };
-
-// getClasses();
 
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */

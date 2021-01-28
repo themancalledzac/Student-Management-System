@@ -1,9 +1,20 @@
 {
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "env": {
         "browser": true,
         "commonjs": true,
         "node": true,
-        "es6": true
+        "es6": true,
+        "jquery": true
     },
     "rules": {
         "no-duplicate-case": "error",
@@ -26,6 +37,7 @@
         "no-redeclare": "error",
         "camelcase": "error",
         "brace-style": "error",
+        "no-console": "off",
         // "indent": [
         //     "error",
         //     4
