@@ -61,7 +61,7 @@
 
       <ul id="teacher_list">
         <h1 class="mt-4">TEACHERS</h1>
-        {{#each teachers}}
+        
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -75,17 +75,22 @@
                       <th>degree</th>
                       <th>rating</th>
                       <th>department</th>
+                      <th></th>
                     </tr>
+                    {{#each teachers}}
                     <tr>
                       {{!-- <th>#</th> --}}
-                      <th>{{ firstName }}</th>
-                      <th>{{ lastName }}</th>
-                      <th>{{ degree }}</th>
-                      <th>{{ rating }}</th>
-                      <th>{{ department }}</th>
+                      <td>{{ firstName }}</th>
+                      <td>{{ lastName }}</th>
+                      <td>{{ degree }}</th>
+                      <td>{{ rating }}</th>
+                      <td>{{ department }}</th>
+                      <td>
+                          <button class="btn btn-light" data-id="{{ id }}" id="teacher-remove"> Remove from
+                        list!</button>
+                      </td>
                     </tr>
-                    <button class="btn btn-success" data-id="{{ id }}" id="teacher-remove"> Remove from
-                      list!</button>
+                    {{/each}}  
                   </thead>
                   <tbody>
                   </tbody>
@@ -94,14 +99,14 @@
             </div>
           </div>
         </div>
-        {{/each}}
+        
       </ul>
 
     </div>
     <div id="class-information">
       <ul id="classes_list">
         <h1 class="mt-4">CLASSES</h1>
-        {{#each classes}}
+        
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -110,11 +115,21 @@
                   <thead>
                     <tr>
                       {{!-- <th>#</th> --}}
-                      <th>{{ name }}</th>
-                      <th>{{ location }}</th>
+                      <th>Class Name</th>
+                      <th>Class Location</th>
+                      <th></th>
                     </tr>
-                    <button class="btn btn-success" data-id="{{ id }}" id="class-remove"> Remove from
-                      list!</button>
+                    {{#each classes}}  
+                    <tr>
+                      {{!-- <th>#</th> --}}
+                      <td>{{ name }}</th>
+                      <td>{{ location }}</th>
+                      <td>
+                        <button class="btn btn-light" data-id="{{ id }}" id="class-remove"> Remove from
+                          list!</button>
+                      </td>
+                    </tr>
+                    {{/each}}
                   </thead>
                   <tbody>
                   </tbody>
@@ -123,7 +138,7 @@
             </div>
           </div>
         </div>
-        {{/each}}
+        
       </ul>
 
     </div>
