@@ -2,6 +2,7 @@ const db = require("../models");
 var express = require("express");
 const router = express.Router();
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+// const { is } = require("sequelize/types/lib/operators");
 
 // const mapDatavalues = row => row.dataValues;
 
@@ -61,7 +62,7 @@ router.get("/profile", isAuthenticated, async (req, res) => {
 });
 
 
-router.post("/profile/:id", isAuthenticated, async (req, res) => {
+router.post("/profile/teacher/:id", isAuthenticated, async (req, res) => {
   console.log(req.params.id);
   console.log(req.user.id);
   const deleteTeacher = await db.TeacherStudents.destroy({
@@ -82,7 +83,32 @@ router.post("/profile/:id", isAuthenticated, async (req, res) => {
     throw (err);
   }
 
-})
+});
+
+router.post("/profile/class/:id", isAuthenticated, async (req, res) => {
+  console.log(req.params.id);
+  console.log(req.user.id);
+  const deleteClass = await db.StudentClasses.destroy({
+
+    where: {
+
+      ClassId:   req.params.id,
+      StudentId: req.user.id,
+
+    },
+    raw:true
+  });
+  try {
+    res.render("profile", {
+
+    });
+
+  } catch (err) {
+    throw (err);
+  }
+
+});
+
 
 module.exports = router;
 

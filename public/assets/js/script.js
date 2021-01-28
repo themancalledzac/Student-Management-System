@@ -183,13 +183,21 @@ $("#teacher-remove").on("click", function (event) {
   event.preventDefault();
   console.log(event.target);
   const teacherId = $(event.target).attr("data-id");
-  $.post("/profile/" + teacherId)
+  $.post("/profile/teacher/" + teacherId)
     .then(data => {
       location.reload("/profile");
     });
 });
 
-
+$("#class-remove").on("click", function (event) {
+  event.preventDefault();
+  const classId = $(event.target).attr("data-id");
+  console.log(classId);
+  $.post("/profile/class/" + classId)
+    .then(data => {
+      location.reload("/profile");
+    });
+});
 
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */
