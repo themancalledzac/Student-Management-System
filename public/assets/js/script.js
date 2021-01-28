@@ -179,6 +179,16 @@ $(document).ready(() => {
   }
 });
 
+$("#teacher-remove").on("click", function (event) {
+  event.preventDefault();
+  console.log(event.target);
+  const teacherId = $(event.target).attr("data-id");
+  $.post("/profile/" + teacherId)
+    .then(data => {
+      location.reload("/profile");
+    });
+});
+
 
 
 /* -------------------------------------------------------------------------- */
