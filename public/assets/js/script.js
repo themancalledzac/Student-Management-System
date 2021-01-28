@@ -255,3 +255,53 @@ getClasses();
 
 //
 
+/* --------------------------------- techers -------------------------------- */
+
+// Function for creating a new table row for teacher
+function createTeacherRow(data) {
+  var newTr = $("<tr >");
+  // newTr.append("<th>"  "</th>");
+  newTr.append("<td>" + data.firstName + "</td>");
+  newTr.append("<td>" + data.lastName + "</td>");
+  newTr.append("<td>" + data.degree + "</td>");
+  newTr.append("<td>" + data.rating + "</td>");
+  newTr.append("<td>" + data.department + "</td>");
+  const addBtn = $(`<button data-teacherId="${data.id}">`).text("add").addClass("add-teacher btn bg-light btn-light");
+  newTr.append(addBtn);
+  return newTr;
+}
+
+function getTeachers() {
+  $.get("/api/teacher", function (data) {
+    // console.log(data);
+    for (var i = 0; i < data.length; i++) {
+      $("tbody").append(createTeacherRow(data[i]));
+    }
+  });
+}
+
+getTeachers();
+
+
+$(document).on("click", ".add-teacher", function (event) {
+  // event.preventDefault()
+  // console.log(event);
+  const teacherId = event.target.dataset.teacherid;
+  console.log(event.target.dataset.teacherid);
+
+  //get user id
+
+  // const newTeacher = {
+  //   teacherId=teacherId,
+  //   studentId=userId
+  // }
+
+  $.ajax("/teacher/" + teacherId, {
+    type: "POST",
+    // data: newTeacher
+  }).then(function () {
+    console.log("teacher added");
+    location.reload();
+  });
+
+});
