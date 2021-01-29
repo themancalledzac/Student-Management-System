@@ -121,54 +121,21 @@ $(document).ready(() => {
 /*                                   profile_page                             */
 /* -------------------------------------------------------------------------- */
 
-// make all ID instead of class ---------TODO---------------------
-
-// start by hiding divs
-// $("#profile-information").hide();
-// $("#teacher-information").hide();
-// $("#class-information").hide();
-
-
 // load student data
-
-
 const getStudentData = function () {
   $.get("/api/profile-student").then(data => {
     $("#student-first-name").text(data.firstName);
     $("#student-last-name").text(data.lastName);
     $("#student-email").text(data.email);
     $("#student-phone").text(data.phoneNumber);
-    // after load, make visible
-    // display none
-    //
   });
 };
-// load teacher data
-// const getTeacherData = async () => {
-//   $.get("/api/profile-teacher").then(data => {
-//     $(".first-name").text(data.firstName);
-//     $(".last-name").text(data.lastName);
-//     $(".email").text(data.email);
-//     $(".email").text(data.email);
-//   });
-// };
-// // load class data
-// const getClassData = async () => {
-//   $.get("/api/profile-class").then(data => {
-//     $(".first-name").text(data.firstName);
-//     $(".last-name").text(data.lastName);
-//     $(".email").text(data.email);
-//     $(".email").text(data.email);
-//   });
-// }
 
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   try {
     getStudentData();
-    // await getTeacherData();
-    // await getClassData();
     $("#profile-information").show(500, () => {
       // $("#profile-information").show(500, () => {
       //   $("#profile-information").show(500);
@@ -184,7 +151,7 @@ $("#teacher-remove").on("click", function (event) {
   console.log(event.target);
   const teacherId = $(event.target).attr("data-id");
   $.post("/profile/teacher/" + teacherId)
-    .then(data => {
+    .then(() => {
       location.reload("/profile");
     });
 });
@@ -194,7 +161,7 @@ $("#class-remove").on("click", function (event) {
   const classId = $(event.target).attr("data-id");
   console.log(classId);
   $.post("/profile/class/" + classId)
-    .then(data => {
+    .then(() => {
       location.reload("/profile");
     });
 });
@@ -223,12 +190,25 @@ $("#add-class").on("click", function (event) {
   console.log(event.target);
   const classId = $(event.target).attr("data-id");
   $.post("/profile/addclass/" + classId)
-    .then(data => {
+    .then(() => {
       location.reload("/profile");
     });
 });
 
-/* --------------------------------- techers -------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                    teachers                                */
+/* -------------------------------------------------------------------------- */
+
+$("#add-teacher").on("click", function (event) {
+  event.preventDefault();
+  console.log(event.target);
+  const addTeacherId = $(event.target).attr("data-id");
+  $.post("/teacher/add/" + addTeacherId)
+    // eslint-disable-next-line no-unused-vars
+    .then(data => {
+      location.reload("/profile");
+    });
+});
 
 // Function for creating a new table row for teacher
 // function createTeacherRow(data) {
@@ -255,16 +235,6 @@ $("#add-class").on("click", function (event) {
 
 // getTeachers();
 
-$("#add-teacher").on("click", function (event) {
-  event.preventDefault();
-  console.log(event.target);
-  const addTeacherId = $(event.target).attr("data-id");
-  $.post("/teacher/add/" + addTeacherId)
-    // eslint-disable-next-line no-unused-vars
-    .then(data => {
-      location.reload("/profile");
-    });
-});
 
 // $(document).on("click", ".add-teacher", function (event) {
 //   // event.preventDefault()

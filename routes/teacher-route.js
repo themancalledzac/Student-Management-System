@@ -38,7 +38,8 @@ router.get("/teacher", isAuthenticated, (req, res) => {
 
 
 /* -------------------------------------------------------------------------- */
-router.post("/teacher/add/:id", isAuthenticated, async (req, res) => {
+router.post("/teacher/add/:id", isAuthenticated, async (req) => {
+    // eslint-disable-next-line no-unused-vars
     const addTeacher = await db.TeacherStudents.create({
         StudentId: req.user.id,
         TeacherId: req.params.id

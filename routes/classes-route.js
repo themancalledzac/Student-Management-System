@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 // Requiring our models and passport as we've configured it
 const db = require("../models");
@@ -36,7 +37,7 @@ router.get("/class", isAuthenticated, (req, res) => {
 });
 
 
-router.post("/profile/addclass/:id", isAuthenticated, async (req, res) => {
+router.post("/profile/addclass/:id", isAuthenticated, async (req) => {
     console.log(req.params.id);
     console.log(req.user.id);
     const addClass = await db.StudentClasses.create({
