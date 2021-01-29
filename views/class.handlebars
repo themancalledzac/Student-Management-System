@@ -14,38 +14,28 @@
             <div class="container-fluid">
                 <h1 class="mt-4">CLASSES</h1>
 
-
-                {{!--TODO: each class needs an on-click function--}}
-                {{!-- <ul class="list-group-class" style="width: 36rem;"> --}}
-                    {{!-- TODO: each class needs an 'add' button to add to your profile --}}
-                    {{#each data}}
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-8 offset-md-2">
-                                <div class="class-container">
-                                    <table class="table text-light">
-                                        <thead>
-                                            <tr>
-                                                <th>{{name}}</th>
-                                                <th>{{location}}</th>
-                                                <th>
-                                                    <button class="btn btn-success" data-id="{{id}}" ,
-                                                        id="add-class">Add
-                                                        Class</button>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
+                {{#each data}}
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="class-container">
+                                <table class="table text-light">
+                                    <thead>
+                                        <tr>
+                                            <th>{{name}}</th>
+                                            <th>{{location}}</th>
+                                            <th>
+                                                <button class="btn btn-success" data-id="{{id}}" , id="add-class">Add
+                                                    Class</button>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    {{/each}}
-
-                    {{!--
-                </ul> --}}
-
-
+                </div>
+                {{/each}}
             </div>
         </div>
         <!-- /#page-content-wrapper -->
