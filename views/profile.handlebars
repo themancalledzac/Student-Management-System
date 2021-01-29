@@ -4,148 +4,121 @@
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">WELCOME <span class="member-name"></span> </div>
     {{>pageparts/aside}}
-    {{!-- <div class="list-group list-group-flush">
-      <a href="/profile" class="list-group-item list-group-item-action bg-light">My Profile</a>
-      <a href="/class" class="list-group-item list-group-item-action bg-light">My Classes</a>
-      <a href="/teacher" class="list-group-item list-group-item-action bg-light">My Teachers</a>
-    </div>
-  </div> --}}
-  <!-- /#sidebar-wrapper -->
 
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-      <button class="btn btn-primary" id="menu-toggle">&#9776;</button>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li> -->
-          <li class="nav-item active">
-            <a class="nav-link" href="/logout">Sign Out</a>
-          </li>
-
-        </ul>
-      </div>
-    </nav>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      {{>pageparts/navbar}}
 
 
 
-    <div class="container-fluid">
-      <h1 class="mt-4">MY PROFILE</h1>
+      <div class="container-fluid">
+        <h1 class="mt-4">MY PROFILE</h1>
 
-      <div><img
-          src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1214428300?b=1&k=6&m=1214428300&s=612x612&w=0&h=kMXMpWVL6mkLu0TN-9MJcEUx1oSWgUq8-Ny6Wszv_ms="
-          width="200px" height="200px" alt="">
-        <button type="button" class="btn btn-light">EDIT IMAGE</button>
-      </div>
-      <br>
-      {{!----------------------------------- TODO -------------------------------------------------}}
-      {{!-- Each --}}
-      <div id="profile-information">
-        <ul class="list-group profile-user-edit" style="width: 36rem;">
-          <li class="list-group-item">First Name: <span id="student-first-name" class="first-name"></span></li>
-          <li class="list-group-item">Last Name: <span id="student-last-name" class="last-name"></span></li>
-          <li class="list-group-item">Email: <span id="student-email" class="email"></span></li>
-        </ul>
+        <div><img
+            src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1214428300?b=1&k=6&m=1214428300&s=612x612&w=0&h=kMXMpWVL6mkLu0TN-9MJcEUx1oSWgUq8-Ny6Wszv_ms="
+            width="200px" height="200px" alt="">
+          <button type="button" class="btn btn-light">EDIT IMAGE</button>
+        </div>
+        <br>
+        {{!----------------------------------- TODO -------------------------------------------------}}
+        {{!-- Each --}}
+        <div id="profile-information">
+          <ul class="list-group profile-user-edit" style="width: 36rem;">
+            <li class="list-group-item">First Name: <span id="student-first-name" class="first-name"></span></li>
+            <li class="list-group-item">Last Name: <span id="student-last-name" class="last-name"></span></li>
+            <li class="list-group-item">Email: <span id="student-email" class="email"></span></li>
+          </ul>
 
-      </div>
+        </div>
 
-      <ul id="teacher_list">
-        <h1 class="mt-4">TEACHERS</h1>
+        <ul id="teacher_list">
+          <h1 class="mt-4">TEACHERS</h1>
 
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <div class="teacher-container">
-                <table class="table  text-light">
-                  <thead>
-                    <tr>
-                      {{!-- <th>#</th> --}}
-                      <th>First Name</th>
-                      <th>last Name</th>
-                      <th>degree</th>
-                      <th>rating</th>
-                      <th>department</th>
-                      <th></th>
-                    </tr>
-                    {{#each teachers}}
-                    <tr>
-                      {{!-- <th>#</th> --}}
-                      <td>{{ firstName }}</th>
-                      <td>{{ lastName }}</th>
-                      <td>{{ degree }}</th>
-                      <td>{{ rating }}</th>
-                      <td>{{ department }}</th>
-                      <td>
-                        <button class="btn btn-light" data-id="{{ id }}" id="teacher-remove"> Remove from
-                          list!</button>
-                      </td>
-                    </tr>
-                    {{/each}}
-                  </thead>
-                  {{!-- <tbody>
-                  </tbody> --}}
-                </table>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <div class="teacher-container">
+                  <table class="table  text-light">
+                    <thead>
+                      <tr>
+                        {{!-- <th>#</th> --}}
+                        <th>First Name</th>
+                        <th>last Name</th>
+                        <th>degree</th>
+                        <th>rating</th>
+                        <th>department</th>
+                        <th></th>
+                      </tr>
+                      {{#each teachers}}
+                      <tr>
+                        {{!-- <th>#</th> --}}
+                        <td>{{ firstName }}</th>
+                        <td>{{ lastName }}</th>
+                        <td>{{ degree }}</th>
+                        <td>{{ rating }}</th>
+                        <td>{{ department }}</th>
+                        <td>
+                          <button class="btn btn-light" data-id="{{ id }}" id="teacher-remove"> Remove from
+                            list!</button>
+                        </td>
+                      </tr>
+                      {{/each}}
+                    </thead>
+                    {{!-- <tbody>
+                    </tbody> --}}
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-      </ul>
+        </ul>
 
-    </div>
-    <div id="class-information">
-      <ul id="classes_list">
-        <h1 class="mt-4">CLASSES</h1>
+      </div>
+      <div id="class-information">
+        <ul id="classes_list">
+          <h1 class="mt-4">CLASSES</h1>
 
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <div class="class-container">
-                <table class="table  text-light">
-                  <thead>
-                    <tr>
-                      {{!-- <th>#</th> --}}
-                      <th>Class Name</th>
-                      <th>Class Location</th>
-                      <th></th>
-                    </tr>
-                    {{#each classes}}
-                    <tr>
-                      {{!-- <th>#</th> --}}
-                      <td>{{ name }}</th>
-                      <td>{{ location }}</th>
-                      <td>
-                        <button class="btn btn-light" data-id="{{ id }}" id="class-remove"> Remove from
-                          list!</button>
-                      </td>
-                    </tr>
-                    {{/each}}
-                  </thead>
-                  {{!-- <tbody>
-                  </tbody> --}}
-                </table>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <div class="class-container">
+                  <table class="table  text-light">
+                    <thead>
+                      <tr>
+                        {{!-- <th>#</th> --}}
+                        <th>Class Name</th>
+                        <th>Class Location</th>
+                        <th></th>
+                      </tr>
+                      {{#each classes}}
+                      <tr>
+                        {{!-- <th>#</th> --}}
+                        <td>{{ name }}</th>
+                        <td>{{ location }}</th>
+                        <td>
+                          <button class="btn btn-light" data-id="{{ id }}" id="class-remove"> Remove from
+                            list!</button>
+                        </td>
+                      </tr>
+                      {{/each}}
+                    </thead>
+                    {{!-- <tbody>
+                    </tbody> --}}
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-      </ul>
+        </ul>
+
+      </div>
+
 
     </div>
-
-
   </div>
-</div>
-<!-- /#page-content-wrapper -->
+  <!-- /#page-content-wrapper -->
 
 </div>
 <!-- /#wrapper -->
