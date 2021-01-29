@@ -27,9 +27,10 @@
 
 - [Description](#description)
 - [User Story](#user-story)
-- [Acceptance Criteria](#acceptance-criteria)
+- [Application Requirements](#application-requirements)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributing](#contributing)
 - [Code](#code)
 - [Questions](#questions)
 
@@ -38,6 +39,15 @@ This project incorporates handlebars to serve a front end application with MySQL
 The application is reliant on handlebars for rendering HTML and JS to the front end.
 
 # Project 2
+
+## User Story
+```
+AS A student 
+I WANT to use teacher rating app
+SO THAT I can easily select teachers and classes.
+```
+
+
 
 ## Application Requirements
 
@@ -60,6 +70,29 @@ The application is reliant on handlebars for rendering HTML and JS to the front 
 - Must meet good quality coding standards (indentation, scoping, naming)
 
 - Must protect API keys in Node with environment variables
+
+## Installation
+
+## Usage
+* Live application is here:
+- [https://rocky-everglades-87417.herokuapp.com/](https://rocky-everglades-87417.herokuapp.com/)
+
+- Create your account , sign in to app, add teachers or classes to your profile.
+
+
+## Contributing
+
+* Zac Edens
+[www.github.com/themancalledzac](https://github.com/themancalledzac)
+* Max Lechner
+[www..github.com/maxlechner](https://github.com/maxlechner)
+* Rattanak Leng
+[www.github.com/rattanakleng](https://github.com/rattanakleng)
+* Akarin Jantachotivongs
+[www.github.com/AkarinJ](https://github.com/AkarinJ)
+* Ali Demir
+[www.github.com/alidemirbay](https://github.com/alidemirbay)
+
 
 ## Presentation Requirements
 
