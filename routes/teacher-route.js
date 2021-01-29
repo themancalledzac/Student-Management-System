@@ -23,27 +23,36 @@ router.get("/api/teacher", function (req, res) {
     }
 });
 
+// html route for teachers page
 
 router.get("/teacher", isAuthenticated, (req, res) => {
-    // If the user already has an account send them to the members page
-    res.render("teacher");
+    //If the user already has an accoutn send them to class page
+    db.Teachers.findAll(
+
+    ).then((dbTeachers) => {
+        let resultAsJson = dbTeachers.map((dbTeachers) => dbTeachers.toJSON());
+        let result = { data: resultAsJson };
+        res.render("teacher", result);
+    });
 });
 
+
 /* -------------------------------------------------------------------------- */
-router.post("/teacher/:id", isAuthenticated, (req, res) => {
-    db.TeacherStudents.create({
-        studentId: req.user.id,
-        teacherId: req.params.id
+router.post("/teacher/add/:id", isAuthenticated, async (req) => {
+    // eslint-disable-next-line no-unused-vars
+    const addTeacher = await db.TeacherStudents.create({
+        StudentId: req.user.id,
+        TeacherId: req.params.id
         // createdAt: CURRENT_TIMESTAMP,
         // updatedAt: CURRENT_TIMESTAMP,
 
-    })
-        .then(() => {
-            res.redirect(307, "/api/login");
-        })
-        .catch(err => {
-            res.status(401).json(err);
-        });
+    });
+    // .then(() => {
+    //     res.redirect(307, "/api/login");
+    // })
+    // .catch(err => {
+    //     res.status(401).json(err);
+    // });
 });
 
 

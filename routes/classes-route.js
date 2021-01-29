@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 // Requiring our models and passport as we've configured it
 const db = require("../models");
@@ -18,7 +19,7 @@ router.get("/api/class", (req, res) => {
         db.Classes.findAll({
 
         }).then((dbClasses) => {
-             res.json(dbClasses);
+            res.json(dbClasses);
         });
     }
 });
@@ -36,12 +37,12 @@ router.get("/class", isAuthenticated, (req, res) => {
 });
 
 
-router.post("/profile/addclass/:id", isAuthenticated, async (req,res) => {
+router.post("/profile/addclass/:id", isAuthenticated, async (req) => {
     console.log(req.params.id);
     console.log(req.user.id);
     const addClass = await db.StudentClasses.create({
-            ClassId: req.params.id,
-            StudentId: req.user.id
+        ClassId: req.params.id,
+        StudentId: req.user.id
     });
 });
 

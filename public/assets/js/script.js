@@ -121,54 +121,21 @@ $(document).ready(() => {
 /*                                   profile_page                             */
 /* -------------------------------------------------------------------------- */
 
-// make all ID instead of class ---------TODO---------------------
-
-// start by hiding divs
-// $("#profile-information").hide();
-// $("#teacher-information").hide();
-// $("#class-information").hide();
-
-
 // load student data
-
-
 const getStudentData = function () {
   $.get("/api/profile-student").then(data => {
     $("#student-first-name").text(data.firstName);
     $("#student-last-name").text(data.lastName);
     $("#student-email").text(data.email);
     $("#student-phone").text(data.phoneNumber);
-    // after load, make visible
-    // display none
-    //
   });
 };
-// load teacher data
-// const getTeacherData = async () => {
-//   $.get("/api/profile-teacher").then(data => {
-//     $(".first-name").text(data.firstName);
-//     $(".last-name").text(data.lastName);
-//     $(".email").text(data.email);
-//     $(".email").text(data.email);
-//   });
-// };
-// // load class data
-// const getClassData = async () => {
-//   $.get("/api/profile-class").then(data => {
-//     $(".first-name").text(data.firstName);
-//     $(".last-name").text(data.lastName);
-//     $(".email").text(data.email);
-//     $(".email").text(data.email);
-//   });
-// }
 
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   try {
     getStudentData();
-    // await getTeacherData();
-    // await getClassData();
     $("#profile-information").show(500, () => {
       // $("#profile-information").show(500, () => {
       //   $("#profile-information").show(500);
@@ -184,7 +151,7 @@ $("#teacher-remove").on("click", function (event) {
   console.log(event.target);
   const teacherId = $(event.target).attr("data-id");
   $.post("/profile/teacher/" + teacherId)
-    .then(data => {
+    .then(() => {
       location.reload("/profile");
     });
 });
@@ -194,7 +161,7 @@ $("#class-remove").on("click", function (event) {
   const classId = $(event.target).attr("data-id");
   console.log(classId);
   $.post("/profile/class/" + classId)
-    .then(data => {
+    .then(() => {
       location.reload("/profile");
     });
 });
@@ -218,76 +185,76 @@ $("#class-remove").on("click", function (event) {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------------- */
-/*                                   TODO                                     */
-/*              Each class needs to be clickable, shows class data            */
-/*                           thoughts on this code?                           */
-/* -------------------------------------------------------------------------- */
-
-
-/* -------------------------------------------------------------------------- */
-/*                                   TODO                                     */
-/*                  Each class needs an 'add to profile' button               */
-/*                           thoughts on this code?                           */
-/* -------------------------------------------------------------------------- */
-
 $("#add-class").on("click", function (event) {
   event.preventDefault();
   console.log(event.target);
   const classId = $(event.target).attr("data-id");
   $.post("/profile/addclass/" + classId)
+    .then(() => {
+      location.reload("/profile");
+    });
+});
+
+/* -------------------------------------------------------------------------- */
+/*                                    teachers                                */
+/* -------------------------------------------------------------------------- */
+
+$("#add-teacher").on("click", function (event) {
+  event.preventDefault();
+  console.log(event.target);
+  const addTeacherId = $(event.target).attr("data-id");
+  $.post("/teacher/add/" + addTeacherId)
+    // eslint-disable-next-line no-unused-vars
     .then(data => {
       location.reload("/profile");
     });
 });
 
-/* --------------------------------- techers -------------------------------- */
-
 // Function for creating a new table row for teacher
-function createTeacherRow(data) {
-  var newTr = $("<tr >");
-  // newTr.append("<th>"  "</th>");
-  newTr.append("<td>" + data.firstName + "</td>");
-  newTr.append("<td>" + data.lastName + "</td>");
-  newTr.append("<td>" + data.degree + "</td>");
-  newTr.append("<td>" + data.rating + "</td>");
-  newTr.append("<td>" + data.department + "</td>");
-  const addBtn = $(`<button data-teacherId="${data.id}">`).text("add").addClass("add-teacher btn bg-light btn-light");
-  newTr.append(addBtn);
-  return newTr;
-}
+// function createTeacherRow(data) {
+//   var newTr = $("<tr >");
+//   // newTr.append("<th>"  "</th>");
+//   newTr.append("<td>" + data.firstName + "</td>");
+//   newTr.append("<td>" + data.lastName + "</td>");
+//   newTr.append("<td>" + data.degree + "</td>");
+//   newTr.append("<td>" + data.rating + "</td>");
+//   newTr.append("<td>" + data.department + "</td>");
+//   const addBtn = $(`<button data-id="${data.id}" id="add-teacher">`).text("add").addClass("btn bg-light btn-light");
+//   newTr.append(addBtn);
+//   return newTr;
+// }
 
-function getTeachers() {
-  $.get("/api/teacher", function (data) {
-    // console.log(data);
-    for (var i = 0; i < data.length; i++) {
-      $("tbody").append(createTeacherRow(data[i]));
-    }
-  });
-}
+// function getTeachers() {
+//   $.get("/api/teacher", function (data) {
+//     // console.log(data);
+//     for (var i = 0; i < data.length; i++) {
+//       $("tbody").append(createTeacherRow(data[i]));
+//     }
+//   });
+// }
 
-getTeachers();
+// getTeachers();
 
 
-$(document).on("click", ".add-teacher", function (event) {
-  // event.preventDefault()
-  // console.log(event);
-  const teacherId = event.target.dataset.teacherid;
-  console.log(event.target.dataset.teacherid);
+// $(document).on("click", ".add-teacher", function (event) {
+//   // event.preventDefault()
+//   // console.log(event);
+//   const teacherId = event.target.dataset.teacherid;
+//   console.log(event.target.dataset.teacherid);
 
-  //get user id
+//   //get user id
 
-  // const newTeacher = {
-  //   teacherId=teacherId,
-  //   studentId=userId
-  // }
+//   // const newTeacher = {
+//   //   teacherId=teacherId,
+//   //   studentId=userId
+//   // }
 
-  $.ajax("/teacher/" + teacherId, {
-    type: "POST",
-    // data: newTeacher
-  }).then(function () {
-    console.log("teacher added");
-    location.reload();
-  });
+//   $.ajax("/teacher/" + teacherId, {
+//     type: "POST",
+//     // data: newTeacher
+//   }).then(function () {
+//     console.log("teacher added");
+//     location.reload();
+//   });
 
-});
+// });

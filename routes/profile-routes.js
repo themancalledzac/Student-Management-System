@@ -65,6 +65,7 @@ router.get("/profile", isAuthenticated, async (req, res) => {
 router.post("/profile/teacher/:id", isAuthenticated, async (req, res) => {
   console.log(req.params.id);
   console.log(req.user.id);
+  // eslint-disable-next-line no-unused-vars
   const deleteTeacher = await db.TeacherStudents.destroy({
 
     where: {
@@ -88,15 +89,16 @@ router.post("/profile/teacher/:id", isAuthenticated, async (req, res) => {
 router.post("/profile/class/:id", isAuthenticated, async (req, res) => {
   console.log(req.params.id);
   console.log(req.user.id);
+  // eslint-disable-next-line no-unused-vars
   const deleteClass = await db.StudentClasses.destroy({
 
     where: {
 
-      ClassId:   req.params.id,
+      ClassId: req.params.id,
       StudentId: req.user.id,
 
     },
-    raw:true
+    raw: true
   });
   try {
     res.render("profile", {

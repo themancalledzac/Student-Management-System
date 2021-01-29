@@ -47,7 +47,51 @@
 
 
         <div class="container-fluid">
-            <h1 class="mt-4">TEACHERS</h1>
+
+            <ul id="teacher_list">
+                <h1 class="mt-4">TEACHERS</h1>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="teacher-container">
+                                <table class="table  text-light">
+                                    <thead>
+                                        <tr>
+                                            {{!-- <th>#</th> --}}
+                                            <th>First Name</th>
+                                            <th>last Name</th>
+                                            <th>degree</th>
+                                            <th>rating</th>
+                                            <th>department</th>
+                                            <th></th>
+                                        </tr>
+                                        {{#each teachers}}
+                                        <tr>
+                                            {{!-- <th>#</th> --}}
+                                            <td>{{ firstName }}</th>
+                                            <td>{{ lastName }}</th>
+                                            <td>{{ degree }}</th>
+                                            <td>{{ rating }}</th>
+                                            <td>{{ department }}</th>
+                                            <td>
+                                                <button class="btn btn-success" data-id="{{id}}" , id="add-teacher">Add
+                                                    Class</button>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </thead>
+                                    {{!-- <tbody>
+                                    </tbody> --}}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </ul>
+
+            {{!-- <h1 class="mt-4">TEACHERS</h1>
 
             <div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -64,13 +108,36 @@
                                     <th>Add</th>
                                 </tr>
                             </thead>
-                            <tbody>
-
-                            </tbody>
+                            {{#each data}}
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <div class="class-container">
+                                            <table class="table text-light">
+                                                <thead>
+                                                    <tr>
+                                                        <th>{{firstName}}</th>
+                                                        <th>{{lastName}}</th>
+                                                        <th>{{degree}}</th>
+                                                        <th>{{rating}}</th>
+                                                        <th>{{department}}</th>
+                                                        <th>
+                                                            <button class="btn btn-success" data-id="{{id}}" ,
+                                                                id="add-teacher">Add
+                                                                Class</button>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
 
