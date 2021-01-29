@@ -40,9 +40,12 @@ router.get("/class", isAuthenticated, (req, res) => {
 router.post("/profile/addclass/:id", isAuthenticated, async (req) => {
     console.log(req.params.id);
     console.log(req.user.id);
-    const addClass = await db.StudentClasses.create({
-        ClassId: req.params.id,
-        StudentId: req.user.id
+    const addClass = await db.StudentClasses.findOrCreate({
+        where: {
+            ClassId: req.params.id,
+            StudentId: req.user.id
+
+        }
     });
 });
 
