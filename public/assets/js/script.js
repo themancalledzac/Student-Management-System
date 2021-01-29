@@ -146,7 +146,7 @@ $(document).ready(() => {
   }
 });
 
-$("#teacher-remove").on("click", function (event) {
+$("button").on("click", "#teacher-remove", function (event) {
   event.preventDefault();
   console.log(event.target);
   const teacherId = $(event.target).attr("data-id");
@@ -156,7 +156,8 @@ $("#teacher-remove").on("click", function (event) {
     });
 });
 
-$("#class-remove").on("click", function (event) {
+
+$("button").on("click", "#class-remove", function (event) {
   event.preventDefault();
   const classId = $(event.target).attr("data-id");
   console.log(classId);
@@ -165,6 +166,39 @@ $("#class-remove").on("click", function (event) {
       location.reload("/profile");
     });
 });
+
+/* -------------------------------------------------------------------------- */
+/*                                   TODO                                     */
+/*      Each of these below lines of code need to replace the above           */
+/*                           thoughts on this code?                           */
+/* -------------------------------------------------------------------------- */
+
+// function teacherRemove() {
+//   $("button").on("click", function (event) {
+//     event.preventDefault();
+//     console.log(event.target);
+//     const teacherId = $(event.target).attr("data-id");
+//     $.post("/profile/teacher/" + teacherId)
+//       .then(() => {
+//         location.reload("/profile");
+//       });
+//   });
+// }
+
+// function classRemove() {
+//   $("#button").on("click", function (event) {
+//     event.preventDefault();
+//     const classId = $(event.target).attr("data-id");
+//     console.log(classId);
+//     $.post("/profile/class/" + classId)
+//       .then(() => {
+//         location.reload("/profile");
+//       });
+//   });
+// }
+
+// teacherRemove();
+// classRemove();
 
 /* -------------------------------------------------------------------------- */
 /*                                   TODO                                     */
@@ -185,7 +219,7 @@ $("#class-remove").on("click", function (event) {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
-$("#add-class").on("click", function (event) {
+$("button").on("click", function (event) {
   event.preventDefault();
   console.log(event.target);
   const classId = $(event.target).attr("data-id");
@@ -199,7 +233,7 @@ $("#add-class").on("click", function (event) {
 /*                                    teachers                                */
 /* -------------------------------------------------------------------------- */
 
-$("#add-teacher").on("click", function (event) {
+$("button").on("click", function (event) {
   event.preventDefault();
   console.log(event.target);
   const addTeacherId = $(event.target).attr("data-id");
