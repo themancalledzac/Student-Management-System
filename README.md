@@ -73,6 +73,13 @@ SO THAT I can easily select teachers and classes.
 
 ## Installation
 
+* Fork repository and clone onto your machine. 
+* You should have NODE installed 
+* Run  "npm install" command
+* Using the MySQL workbench copy and paste the schema.sql file for the tables and the seed.sql to insert data.
+* In the config.json file enter your database credentials
+* To start the application type "node server.js" and run
+
 ## Usage
 * Live application is here:
 - [https://rocky-everglades-87417.herokuapp.com/](https://rocky-everglades-87417.herokuapp.com/)
