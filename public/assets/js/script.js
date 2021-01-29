@@ -218,19 +218,6 @@ $("#class-remove").on("click", function (event) {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------------- */
-/*                                   TODO                                     */
-/*              Each class needs to be clickable, shows class data            */
-/*                           thoughts on this code?                           */
-/* -------------------------------------------------------------------------- */
-
-
-/* -------------------------------------------------------------------------- */
-/*                                   TODO                                     */
-/*                  Each class needs an 'add to profile' button               */
-/*                           thoughts on this code?                           */
-/* -------------------------------------------------------------------------- */
-
 $("#add-class").on("click", function (event) {
   event.preventDefault();
   console.log(event.target);
@@ -244,50 +231,60 @@ $("#add-class").on("click", function (event) {
 /* --------------------------------- techers -------------------------------- */
 
 // Function for creating a new table row for teacher
-function createTeacherRow(data) {
-  var newTr = $("<tr >");
-  // newTr.append("<th>"  "</th>");
-  newTr.append("<td>" + data.firstName + "</td>");
-  newTr.append("<td>" + data.lastName + "</td>");
-  newTr.append("<td>" + data.degree + "</td>");
-  newTr.append("<td>" + data.rating + "</td>");
-  newTr.append("<td>" + data.department + "</td>");
-  const addBtn = $(`<button data-teacherId="${data.id}">`).text("add").addClass("add-teacher btn bg-light btn-light");
-  newTr.append(addBtn);
-  return newTr;
-}
+// function createTeacherRow(data) {
+//   var newTr = $("<tr >");
+//   // newTr.append("<th>"  "</th>");
+//   newTr.append("<td>" + data.firstName + "</td>");
+//   newTr.append("<td>" + data.lastName + "</td>");
+//   newTr.append("<td>" + data.degree + "</td>");
+//   newTr.append("<td>" + data.rating + "</td>");
+//   newTr.append("<td>" + data.department + "</td>");
+//   const addBtn = $(`<button data-id="${data.id}" id="add-teacher">`).text("add").addClass("btn bg-light btn-light");
+//   newTr.append(addBtn);
+//   return newTr;
+// }
 
-function getTeachers() {
-  $.get("/api/teacher", function (data) {
-    // console.log(data);
-    for (var i = 0; i < data.length; i++) {
-      $("tbody").append(createTeacherRow(data[i]));
-    }
-  });
-}
+// function getTeachers() {
+//   $.get("/api/teacher", function (data) {
+//     // console.log(data);
+//     for (var i = 0; i < data.length; i++) {
+//       $("tbody").append(createTeacherRow(data[i]));
+//     }
+//   });
+// }
 
-getTeachers();
+// getTeachers();
 
-
-$(document).on("click", ".add-teacher", function (event) {
-  // event.preventDefault()
-  // console.log(event);
-  const teacherId = event.target.dataset.teacherid;
-  console.log(event.target.dataset.teacherid);
-
-  //get user id
-
-  // const newTeacher = {
-  //   teacherId=teacherId,
-  //   studentId=userId
-  // }
-
-  $.ajax("/teacher/" + teacherId, {
-    type: "POST",
-    // data: newTeacher
-  }).then(function () {
-    console.log("teacher added");
-    location.reload();
-  });
-
+$("#add-teacher").on("click", function (event) {
+  event.preventDefault();
+  console.log(event.target);
+  const addTeacherId = $(event.target).attr("data-id");
+  $.post("/teacher/add/" + addTeacherId)
+    // eslint-disable-next-line no-unused-vars
+    .then(data => {
+      location.reload("/profile");
+    });
 });
+
+// $(document).on("click", ".add-teacher", function (event) {
+//   // event.preventDefault()
+//   // console.log(event);
+//   const teacherId = event.target.dataset.teacherid;
+//   console.log(event.target.dataset.teacherid);
+
+//   //get user id
+
+//   // const newTeacher = {
+//   //   teacherId=teacherId,
+//   //   studentId=userId
+//   // }
+
+//   $.ajax("/teacher/" + teacherId, {
+//     type: "POST",
+//     // data: newTeacher
+//   }).then(function () {
+//     console.log("teacher added");
+//     location.reload();
+//   });
+
+// });
