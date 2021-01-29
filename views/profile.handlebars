@@ -31,88 +31,37 @@
 
         </div>
 
-        <ul id="teacher_list">
-          <h1 class="mt-4">TEACHERS</h1>
-
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-8 offset-md-2">
-                <div class="teacher-container">
-                  <table class="table  text-light">
-                    <thead>
-                      <tr>
-                        {{!-- <th>#</th> --}}
-                        <th>First Name</th>
-                        <th>last Name</th>
-                        <th>degree</th>
-                        <th>rating</th>
-                        <th>department</th>
-                        <th></th>
-                      </tr>
-                      {{#each teachers}}
-                      <tr>
-                        {{!-- <th>#</th> --}}
-                        <td>{{ firstName }}</th>
-                        <td>{{ lastName }}</th>
-                        <td>{{ degree }}</th>
-                        <td>{{ rating }}</th>
-                        <td>{{ department }}</th>
-                        <td>
-                          <button class="btn btn-light" data-id="{{ id }}" id="teacher-remove"> Remove from
-                            list!</button>
-                        </td>
-                      </tr>
-                      {{/each}}
-                    </thead>
-                    {{!-- <tbody>
-                    </tbody> --}}
-                  </table>
-                </div>
-              </div>
+        <div class="container-fluid">
+          <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+            <div class="lh-100">
+              <h6 class="mb-0 text-white lh-100">Teachers</h6>
+              <small>University of Washington Bootcamp</small>
             </div>
           </div>
 
-        </ul>
+          <div class="my-3 p-3 bg-white rounded box-shadow">
+            <h6 class="border-bottom border-gray pb-2 mb-0"></h6>
+            {{#each teachers}}
+            {{>pageparts/profileteacher}}
+            {{/each}}
+          </div>
+        </div>
 
       </div>
-      <div id="class-information">
-        <ul id="classes_list">
-          <h1 class="mt-4">CLASSES</h1>
-
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-8 offset-md-2">
-                <div class="class-container">
-                  <table class="table  text-light">
-                    <thead>
-                      <tr>
-                        {{!-- <th>#</th> --}}
-                        <th>Class Name</th>
-                        <th>Class Location</th>
-                        <th></th>
-                      </tr>
-                      {{#each classes}}
-                      <tr>
-                        {{!-- <th>#</th> --}}
-                        <td>{{ name }}</th>
-                        <td>{{ location }}</th>
-                        <td>
-                          <button class="btn btn-light" data-id="{{ id }}" id="class-remove"> Remove from
-                            list!</button>
-                        </td>
-                      </tr>
-                      {{/each}}
-                    </thead>
-                    {{!-- <tbody>
-                    </tbody> --}}
-                  </table>
-                </div>
-              </div>
-            </div>
+      <div class="container-fluid">
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+          <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Classes</h6>
+            <small>University of Washington Bootcamp</small>
           </div>
+        </div>
 
-        </ul>
-
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+          <h6 class="border-bottom border-gray pb-2 mb-0"></h6>
+          {{#each classes}}
+          {{>pageparts/profileclass}}
+          {{/each}}
+        </div>
       </div>
 
 
