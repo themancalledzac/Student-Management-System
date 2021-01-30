@@ -6,6 +6,30 @@ body {
     height: 100vh;
 }
 
+#background-image-building {
+    background: url(../images/background_image.jpg);
+}
+
+#login-column {
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 7px;
+    opacity: 95%;
+    -webkit-box-shadow: 4px 3px 15px -3px rgba(0,0,0,0.2); 
+box-shadow: 4px 3px 15px -3px rgba(0,0,0,0.2);
+}
+
+#signup-box {
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 7px;
+    opacity: 90%;
+    -webkit-box-shadow: 4px 3px 15px -3px rgba(0,0,0,0.2); 
+box-shadow: 4px 3px 15px -3px rgba(0,0,0,0.2);
+}
+
 #login .container #login-row #login-column #login-box {
     margin-top: 120px;
     max-width: 600px;
