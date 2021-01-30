@@ -7,6 +7,14 @@
         <strong class="d-block text-gray-dark">{{name}}</strong>
         Located in or at {{location}}, we hope you learn a lot.
     </p>
-    <button class="btn btn-dark" data-id="{{id}}" , id="add-class">Add
-        Class</button>
+    {{!-- <button class="btn btn-dark" data-id="{{id}}" , id="add-class">Add
+        Class</button> --}}
+
+
+
+
+    <input onclick="this.value='Class Added'" class="btn btn-dark" data-id="{{id}}" type="button" value="Add Class"
+        id="add-class" />
+
+
 </div>
