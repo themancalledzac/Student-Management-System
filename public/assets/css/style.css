@@ -93,3 +93,9 @@ body {
         margin-left: -15rem;
     }
 }
+
+#background-image {
+    background-color: white;
+    border-radius: 7px;
+    margin-right: 5px;
+}
