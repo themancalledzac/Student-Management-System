@@ -219,7 +219,7 @@ $(document).on("click", "#class-remove", function (event) {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
-$("#add-class").on("click", function (event) {
+$(document).on("click", "#add-class", function (event) {
   event.preventDefault();
   console.log(event.target);
   const classId = $(event.target).attr("data-id");
@@ -233,7 +233,7 @@ $("#add-class").on("click", function (event) {
 /*                                    teachers                                */
 /* -------------------------------------------------------------------------- */
 
-$("#add-teacher").on("click", function (event) {
+$(document).on("click", "#add-teacher", function (event) {
   event.preventDefault();
   console.log(event.target);
   const addTeacherId = $(event.target).attr("data-id");
