@@ -146,7 +146,7 @@ $(document).ready(() => {
   }
 });
 
-$("button").on("click", "#teacher-remove", function (event) {
+$(document).on("click", "#teacher-remove", function (event) {
   event.preventDefault();
   console.log(event.target);
   const teacherId = $(event.target).attr("data-id");
@@ -157,7 +157,7 @@ $("button").on("click", "#teacher-remove", function (event) {
 });
 
 
-$("button").on("click", "#class-remove", function (event) {
+$(document).on("click", "#class-remove", function (event) {
   event.preventDefault();
   const classId = $(event.target).attr("data-id");
   console.log(classId);
@@ -219,7 +219,7 @@ $("button").on("click", "#class-remove", function (event) {
 /*                                    class                                   */
 /* -------------------------------------------------------------------------- */
 
-$("button").on("click", function (event) {
+$("#add-class").on("click", function (event) {
   event.preventDefault();
   console.log(event.target);
   const classId = $(event.target).attr("data-id");
@@ -233,7 +233,7 @@ $("button").on("click", function (event) {
 /*                                    teachers                                */
 /* -------------------------------------------------------------------------- */
 
-$("button").on("click", function (event) {
+$("#add-teacher").on("click", function (event) {
   event.preventDefault();
   console.log(event.target);
   const addTeacherId = $(event.target).attr("data-id");
