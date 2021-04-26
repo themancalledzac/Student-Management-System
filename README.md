@@ -37,7 +37,6 @@
 This project incorporates handlebars to serve a front end application with MySQL serving as the databse to store the backend date.
 =======
 This group project worked on solving the concept of having a management system for your teachers and classes, with future implementation of reviews, and authentication to give the ability to add and comment. This project incorporates handlebars to serve a front end application with MySQL serving as the databse to store the backend date. 
->>>>>>> 946b8af1a2b32fc25fb7d75e3eaaa8432f5766fb
 The application is reliant on handlebars for rendering HTML and JS to the front end.
 
 Future changes would be moving to React, adding teacher reviews to the database, connecting teachers and classes so by adding a class to your schedule, it automatically adds that teacher, and overall class scheduling.  Another future implementation would be different login pages based on the user, being Student or Teacher, with different functionality for both.
