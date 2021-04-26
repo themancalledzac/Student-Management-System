@@ -7,9 +7,6 @@
     <img src="https://img.shields.io/github/last-commit/themancalledzac/project2group4" >
     <img src="https://img.shields.io/travis/com/themancalledzac/Student-Management-System/main" >
 
-
-
-
 </p>
   
 <p align="center">
@@ -35,19 +32,21 @@
 - [Questions](#questions)
 
 ## Description
-This project incorporates handlebars to serve a front end application with MySQL serving as the databse to store the backend date. 
+
+This project incorporates handlebars to serve a front end application with MySQL serving as the databse to store the backend date.
 The application is reliant on handlebars for rendering HTML and JS to the front end.
 
 # Project 2
 
 ## User Story
+
 ```
-AS A student 
+AS A student
 I WANT to use teacher rating app
 SO THAT I can easily select teachers and classes.
 ```
 
-
+![project gif](./images/StudentRatingTool.gif)
 
 ## Application Requirements
 
@@ -73,33 +72,33 @@ SO THAT I can easily select teachers and classes.
 
 ## Installation
 
-* Fork repository and clone onto your machine. 
-* You should have NODE installed 
-* Run  "npm install" command
-* Using the MySQL workbench copy and paste the schema.sql file for the tables and the seed.sql to insert data.
-* In the config.json file enter your database credentials
-* To start the application type "node server.js" and run
+- Fork repository and clone onto your machine.
+- You should have NODE installed
+- Run "npm install" command
+- Using the MySQL workbench copy and paste the schema.sql file for the tables and the seed.sql to insert data.
+- In the config.json file enter your database credentials
+- To start the application type "node server.js" and run
 
 ## Usage
-* Live application is here:
-- [https://rocky-everglades-87417.herokuapp.com/](https://rocky-everglades-87417.herokuapp.com/)
 
-- Create your account , sign in to app, add teachers or classes to your profile.
+- Live application is here:
 
+* [https://rocky-everglades-87417.herokuapp.com/](https://rocky-everglades-87417.herokuapp.com/)
+
+* Create your account , sign in to app, add teachers or classes to your profile.
 
 ## Contributing
 
-* Zac Edens
-[www.github.com/themancalledzac](https://github.com/themancalledzac)
-* Max Lechner
-[www..github.com/maxlechner](https://github.com/maxlechner)
-* Rattanak Leng
-[www.github.com/rattanakleng](https://github.com/rattanakleng)
-* Akarin Jantachotivongs
-[www.github.com/AkarinJ](https://github.com/AkarinJ)
-* Ali Demir
-[www.github.com/alidemirbay](https://github.com/alidemirbay)
-
+- Zac Edens
+  [www.github.com/themancalledzac](https://github.com/themancalledzac)
+- Max Lechner
+  [www..github.com/maxlechner](https://github.com/maxlechner)
+- Rattanak Leng
+  [www.github.com/rattanakleng](https://github.com/rattanakleng)
+- Akarin Jantachotivongs
+  [www.github.com/AkarinJ](https://github.com/AkarinJ)
+- Ali Demir
+  [www.github.com/alidemirbay](https://github.com/alidemirbay)
 
 ## Presentation Requirements
 
