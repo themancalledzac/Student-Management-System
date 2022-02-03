@@ -88,7 +88,7 @@ SO THAT I can easily select teachers and classes.
 
 - Live application is here:
 
-* [https://rocky-everglades-87417.herokuapp.com/](https://rocky-everglades-87417.herokuapp.com/)
+* [https://rocky-everglades-87417.herokuapp.com/](https://student-management-edens.herokuapp.com/)
 
 * Create your account , sign in to app, add teachers or classes to your profile.
 
